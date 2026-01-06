@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidaturas - InfoAlunos</title>
+    <link rel="stylesheet" href="trabalho1.css">
+</head>
+<body>
+    <header>
+        <div><img src="logotipos_UMa_png-05.png" style="width: 150px;height:55px;"></div>
+        <div><strong>InfoAlunos - Serviço de Informação dos Alunos</strong></div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+        <span id="user-name-display" style="font-weight: 600;">Usuario</span>
+        <img src="image-kira.jpg" alt="user" style="width:40px;height:40px;border-radius:50%;background:#fff;" />
+
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+              <span class="icon-sun">☀️</span>
+              <span class="icon-moon">🌙</span>
+            </div>
+          </label>
+        </div>
+
+        <a href="#" id="btn-logout" style="color: #ff4d4d; font-weight: bold;">Sair</a>
+        </div>
+
+        <nav class="header-nav" aria-label="Ações do utilizador">
+          <a href="trabalho1.html">Início</a>
+          <a href="ajuda.html">Ajuda</a>
+        </nav>
+        </header>
+
+    <div class="main-layout-flex">
+        <aside class="sidebar" aria-label="Navegação principal">
+                  <ul>
+        <li><a href="trabalho1.html">Inicio </a></li>
+        
+        <li class="has-submenu">
+          <a href="#">Geral </a>
+          <ul class="submenu">
+            <li><a href="processos.html">Processos</a></li>
+            <li><a href="dadosp.html">Dados Pessoais</a></li>
+            <li><a href="privacidade.html">Privacidade</a></li>
+            <li><a href="ajuda.html">Ajuda</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Servicios </a>
+          <ul class="submenu">
+            <li><a href="pagamentos.html">Pagamentos</a></li>
+            <li><a href="matriculas.html">Matrículas Inscrições</a></li>
+            <li><a href="turmas.html">Inscrição em Turmas</a></li>
+            <li><a href="requerimentos.html">Requerimentos</a></li>
+            <li><a href="cartao.html">Cartão Universitário</a></li>
+            <li><a href="bolsas.html">SASUMa-Bolsas</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Concursos </a>
+          <ul class="submenu">
+            <li><a href="candidaturas.html">Candidaturas</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Avaliação </a>
+          <ul class="submenu">
+            <li><a href="pautas.html">Pautas</a></li>
+            <li><a href="reclamacao.html">Reclamação de Notas</a></li>
+            <li><a href="inqueritos.html">Inquéritos</a></li>
+            <li><a href="resultados.html">Resultados de Inquéritos</a></li>
+            <li><a href="inquerito.html">Inquérito RAIDES</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Creditações </a>
+          <ul class="submenu">
+            <li><a href="lista_processos.html">Lista Processos</a></li>
+            <li><a href="novo_processo.html">Novo Processo</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Documentos </a>
+          <ul class="submenu">
+            <li><a href="academicos.html">Académicos</a></li>
+            <li><a href="declaracoes.html">Declarações</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Aula </a>
+          <ul class="submenu">
+            <li><a href="calendario.html">Calendário</a></li>
+            <li><a href="sumarios.html">Sumários</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="content">
+    <div class="panel">
+        <div class="candidatura-search-box">
+            <div class="search-row">
+                <label for="concurso">Concurso</label>
+                <select id="concurso" class="search-select">
+                    <option value=""></option>
+                    </select>
+            </div>
+            <div class="search-row">
+                <label for="curso-search">Curso</label>
+                <select id="curso-search" class="search-select">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="search-action">
+                <button class="btn-pesquisar">Pesquisar</button>
+            </div>
+        </div>
+
+        <div style="overflow-x: auto; margin-top: 20px;">
+            <table class="table-candidaturas">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"></th> <th style="width: 20px;"></th> <th>Concurso</th>
+                        <th>Fase</th>
+                        <th>Tipo Curso</th>
+                        <th>Curso</th>
+                        <th>Vagas</th>
+                        <th>Candidatura</th>
+                        <th>Cand. Aluno</th>
+                        <th style="width: 100px;"></th> </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="10" style="text-align: center; padding: 20px; color: #666;">
+                            Utilize os filtros acima para pesquisar candidaturas disponíveis.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <script>
+    const usuarioLogueado = localStorage.getItem('nombreUsuario');
+    if (!usuarioLogueado) {
+        window.location.href = "login1.html";
+    } else {
+        const display = document.getElementById('user-name-display');
+        if(display) display.innerText = usuarioLogueado;
+    }
+
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.style.colorScheme = currentTheme;
+        if (currentTheme === 'dark') toggleSwitch.checked = true;
+    }
+
+    toggleSwitch.addEventListener('change', (e) => {
+        const theme = e.target.checked ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = theme;
+        localStorage.setItem('theme', theme);
+    });
+
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.id === 'btn-logout') {
+            e.preventDefault();
+
+            if (confirm("¿Desejas fechar a sessão?")) {
+                localStorage.removeItem('nombreUsuario');
+                window.location.replace("login1.html"); 
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

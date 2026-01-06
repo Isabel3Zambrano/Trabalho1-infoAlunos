@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio de Sessão - InfoAlunos</title>
+        <link rel="stylesheet" href="trabalho1.css">
+    </head>
+    <body>
+        <div class="panel1">
+        <div class="login-box panel">
+            <img src="logo2_cor.png" alt="Logo" style="width: 250px;height: 100px; margin-top: 50px; margin-left: 150px; margin-right: 30px;">
+            <!--O elemento <form> é utilizado para recolher dados introduzidos pelo utilizador.-->
+            <form id="loginForm">
+                <label for="username" style="display: block; text-align: left;">Usuario:</label>
+                <input id="username" type="text" placeholder="Ex: aluno123">
+                <label for="password" style="display: block; text-align: left;">Senha:</label>
+                <input id="password" type="password" placeholder="••••••••">
+                <span id="error-msg"></span>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Guarda um utilizador fictício
+        localStorage.setItem('nombreUsuario', 'Aluno');
+
+        // Entra diretamente
+        window.location.href = "trabalho1.html";
+    });
+    </script>
+
+
+</body>
+</html>

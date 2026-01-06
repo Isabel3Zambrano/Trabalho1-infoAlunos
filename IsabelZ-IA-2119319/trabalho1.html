@@ -1,0 +1,202 @@
+<!--O <!DOCTYPE> html define o tipo de documento como HTML5 e garante que o navegador utilize o modo de renderização padrão-->
+<!DOCTYPE html>
+<!--O atributo <lang="pt"> identifica o idioma principal do documento, melhorando a acessibilidade e a interpretação do conteúdo.-->
+<html lang="pt">
+<!--A secção <head> contém metadados e recursos da página, como o título, folhas de estilo e configurações de visualização, 
+  não sendo exibida diretamente ao utilizador.-->
+<head>
+  <!--A meta tag <meta charset="UTF-8"> define a codificação de caracteres do documento, garantindo a correta apresentação de textos e símbolos.-->
+    <meta charset="UTF-8">
+  <!--A meta tag viewport permite adaptar o layout da página a diferentes tamanhos de ecrã, garantindo uma experiência responsiva em dispositivos móveis.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Com esta ligação, as fontes são carregadas a partir de um serviço externo otimizado.-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+  <!--A folha de estilos "trabalho1.css" é vinculada para aplicar estilos personalizados à página.-->
+    <link rel="stylesheet" href="trabalho1.css">
+  <!--Define o título do documento HTML, apresentado no separador do navegador e utilizado por motores de pesquisa.-->
+    <title>Trabalho 1</title>
+</head>
+
+<!--O elemento <body> contém todo o conteúdo visível do documento HTML, apresentado ao utilizador no navegador.-->
+<body>
+
+  <!--O elemento <header> define o cabeçalho de uma página ou secção, contendo informação introdutória e elementos de navegação.-->
+    <header>
+      <!--O cabeçalho da aplicação contém a identificação visual da plataforma, informação do utilizador autenticado, 
+      controlos de interface (como mudança de tema e logout) e um conjunto de ligações de navegação rápida.-->
+        <div><img src="logotipos_UMa_png-05.png" style="width: 150px;height:55px;"></div>
+        <div><strong>InfoAlunos - Serviço de Informação dos Alunos</strong></div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+        <span id="user-name-display" style="font-weight: 600;">Usuario</span>
+        <img src="image-kira.jpg" alt="user" style="width:40px;height:40px;border-radius:50%;background:#fff;" />
+
+        <!--Este componente permite ao utilizador alternar entre o modo claro e o modo escuro da interface, 
+        melhorando a experiência de utilização e a acessibilidade, especialmente em diferentes condições de iluminação.-->
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+              <!-- <span> É utilizado para apresentar informação dinâmica-->
+              <span class="icon-sun">☀️</span>
+              <span class="icon-moon">🌙</span>
+            </div>
+          </label>
+        </div>
+
+        <!--Ação de encerramento de sessão do utilizador.-->
+        <a href="#" id="btn-logout" style="color: #ff4d4d; font-weight: bold;">Sair</a>
+        </div>
+
+        <nav class="header-nav" aria-label="Ações do utilizador">
+          <a href="trabalho1.html">Início</a>
+          <a href="ajuda.html">Ajuda</a>
+        </nav>
+      </header>
+
+    <!--Contentor principal do layout da aplicação.-->
+    <div class="main-layout-flex">
+    <!--A barra lateral funciona como menu de navegação principal, organizada por categorias funcionais. 
+    Cada categoria agrupa subconjuntos de funcionalidades relacionadas, facilitando a localização de conteúdos e melhorando a experiência de utilização.-->
+    <aside class="sidebar" aria-label="Navegação principal">
+      <!--<ul> é um elemento utilizado para estruturar listas de opções de navegação.-->
+      <ul>
+        <!--<li> é um elemento que define cada item individual de uma lista.-->
+        <li><a href="trabalho1.html">Inicio </a></li>
+        <!-- "class" é um atributo utilizado para identificar elementos e aplicar estilos ou regras comuns.-->
+        <li class="has-submenu">
+        <!--O <a href="#"> é um elemento utilizado para criar ligações que permitem ao utilizador navegar entre páginas.-->
+          <a href="#">Geral </a>
+          <ul class="submenu">
+            <li><a href="processos.html">Processos</a></li>
+            <li><a href="dadosp.html">Dados Pessoais</a></li>
+            <li><a href="privacidade.html">Privacidade</a></li>
+            <li><a href="ajuda.html">Ajuda</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Servicios </a>
+          <ul class="submenu">
+            <li><a href="pagamentos.html">Pagamentos</a></li>
+            <li><a href="matriculas.html">Matrículas Inscrições</a></li>
+            <li><a href="turmas.html">Inscrição em Turmas</a></li>
+            <li><a href="requerimentos.html">Requerimentos</a></li>
+            <li><a href="cartao.html">Cartão Universitário</a></li>
+            <li><a href="bolsas.html">SASUMa-Bolsas</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Concursos </a>
+          <ul class="submenu">
+            <li><a href="candidaturas.html">Candidaturas</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Avaliação </a>
+          <ul class="submenu">
+            <li><a href="pautas.html">Pautas</a></li>
+            <li><a href="reclamacao.html">Reclamação de Notas</a></li>
+            <li><a href="inqueritos.html">Inquéritos</a></li>
+            <li><a href="resultados.html">Resultados de Inquéritos</a></li>
+            <li><a href="raides.html">Inquérito RAIDES</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Creditações </a>
+          <ul class="submenu">
+            <li><a href="lista_processos.html">Lista Processos</a></li>
+            <li><a href="novo_processo.html">Novo Processo</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Documentos </a>
+          <ul class="submenu">
+            <li><a href="academicos.html">Académicos</a></li>
+            <li><a href="declaracoes.html">Declarações</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Aula </a>
+          <ul class="submenu">
+            <li><a href="calendario.html">Calendário</a></li>
+            <li><a href="sumarios.html">Sumários</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <!--Este elemento define a área principal de conteúdo da página, onde é apresentada a informação específica de cada funcionalidade.-->
+    <div class="content">
+
+      <div class="flex-row">
+        <div class="panel">
+          <h3>Últimas Pautas</h3>
+          </div>
+
+        <div class="panel">
+          <li><a href="pagamentos.html">Pagamentos por Liquidar</a></li>
+          </div>
+        </div>
+        
+        <div class="panel">
+          <li><a href="processos.html">Lista de Processos do Aluno</a></li>
+          </div>
+
+        <div class="flex-row">
+          <div class="panel flex-33">
+          <h3></h3>
+          </div>
+
+          <div class="panel flex-33">
+            <h3>Avisos</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--O uso de JavaScript permite gerir sessões de utilizador, alternar temas visuais e controlar ações como login e logout.-->
+    <script>
+    //Verificar sessão imediatamente ao carregar
+    const usuarioLogueado = localStorage.getItem('nombreUsuario');
+    if (!usuarioLogueado) {
+        window.location.href = "login1.html";
+    } else {
+        const display = document.getElementById('user-name-display');
+        if(display) display.innerText = usuarioLogueado;
+    }
+
+    //Modo escuro
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.style.colorScheme = currentTheme;
+        if (currentTheme === 'dark') toggleSwitch.checked = true;
+    }
+
+    toggleSwitch.addEventListener('change', (e) => {
+        const theme = e.target.checked ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = theme;
+        localStorage.setItem('theme', theme);
+    });
+
+    //LOGOUT 
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.id === 'btn-logout') {
+            e.preventDefault();
+
+            if (confirm("¿Desejas fechar a sessão?")) {
+                localStorage.removeItem('nombreUsuario');
+                window.location.replace("login1.html"); 
+            }
+        }
+    });
+</script>
+</body>
+</html>

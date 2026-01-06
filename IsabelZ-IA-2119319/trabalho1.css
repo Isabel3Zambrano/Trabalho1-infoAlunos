@@ -1,0 +1,1250 @@
+/* Esquema de cores (light/dark) com variaveis CSS */
+
+:root {
+    color-scheme: light dark;
+    --bg: light-dark(#f2f2f2, #1a1a1a);
+    --panel: light-dark(#ffffff, #2b2b2b);
+    --text: light-dark(#000, #fff);
+    --border: light-dark(#ccc, #444);
+    --primary: #2a6da8;
+    --sidebar-bg: light-dark(#e6e6e6, #333);
+    --sidebar-item: light-dark(#d5d5d5, #444);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    height: 100vh;
+    background-color: var(--bg);
+    transition: background-color 0.3s ease;
+}
+/*LOGIN*/
+.login-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    text-align: center;
+    margin-left: 200px;
+    margin-top: 100px;
+    background-color: var(--border)
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: var(--bg);
+    color: var(--text);
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#error-msg {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+/*Menu acessivel*/
+.has-submenu:focus-within .submenu {
+    display: block;
+}
+
+.has-submenu > a:focus-visible {
+    outline: 2px solid var(--primary);
+}
+
+/* Header com logo e barra com botones animados*/
+
+header {
+    background: var(--primary);
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+}
+
+.header-nav a:hover::after {
+    width: 100%;
+}
+
+/* Layout con CSS Grid + Subgrid  side bar sobrepassa o conteúdo */
+
+.main-layout-flex {
+    overflow: visible;
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+aside {
+    position: relative;
+    z-index: 100;
+    width: 130px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border);
+    color: white;
+    height: 100vh; 
+    padding: 5px;
+    margin: 0;
+}
+
+aside ul {
+    height: 100px;
+    width: 100px;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+aside li {
+    padding: 0%;
+    position: relative;
+    background: var(--sidebar-item);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+aside li:hover {
+    background: var(--primary);
+    color: white;
+}
+
+aside a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+aside a:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Estilos e posicionamento do submenu */
+
+.submenu {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 100%;
+    width: 200px;
+    background-color: var(--sidebar-item);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+/* Mostrar menu ao passar o mouse */
+.has-submenu:hover .submenu {
+    display: block;
+}
+.submenu a {
+    padding: 15px 20px;
+}
+.submenu a:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Área de conteúdo */
+
+.content {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: visible;
+    padding: 15px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr;
+    align-content: start;
+}
+
+.panel{
+    background-color: var(--sidebar-item);
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+}
+
+/* modo claro/escuro toggle */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider:before {
+    background-color: white;
+    content: "";
+    height: 20px;
+    left: 2;
+    position: absolute;
+    transition: .4s;
+    width: 20px;
+    z-index: 3;
+}
+
+input:checked + .slider { 
+    background-color: var(--primary); 
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+.slider.round { 
+    border-radius: 34px; 
+}
+.slider.round:before { 
+    border-radius: 50%; 
+}
+
+/* Contenedor de filas*/
+.flex-row {
+    display: flex;
+    gap: 15px; 
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.flex-row .panel {
+    flex: 1; 
+    min-width: 0; 
+}
+
+.flex-33 {
+    flex: 0 0 calc(33.33% - 10px) !important;
+}
+
+.panel {
+    background-color: var(--panel);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column; 
+}
+
+.panel h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+@media (width <= 768px) {
+    .flex-row {
+        flex-direction: column; /* Em dispositivos móveis, se empilham verticalmente */
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: var(--bg); /* Se adapta ao modo escuro */
+}
+
+th {
+    background-color: #e9ecef; 
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* DADOS */
+/* Estilo para as tabelas de dados simples */
+.table-info {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table-info td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    border: none; /* Quitamos bordes da tabela de processos */
+}
+
+.btn-alterar {
+    font-size: 12px;
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-info-box {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+/* PRIVACIDADE */
+/* Contenedor centralizado */
+.privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.privacy-main-title {
+    text-align: center;
+    color: var(--text);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.privacy-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Cartões de privacidade */
+.privacy-card {
+    margin-bottom: 25px;
+    padding: 0; /* Para que o header tenha seu próprio espaço */
+    overflow: hidden;
+}
+
+.privacy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.privacy-title-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.privacy-icon {
+    font-size: 24px;
+}
+
+.privacy-header h3 {
+    margin: 0;
+    color: #006699;
+    font-size: 16px;
+}
+
+/* Badge de estado */
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-green {
+    color: #28a745;
+}
+
+.check-icon {
+    transform: rotate(45deg) scaleX(-1); /* Simula um check com uma L */
+    display: inline-block;
+}
+
+/* Corpo do texto */
+.privacy-body {
+    padding: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.privacy-list {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.privacy-list li {
+    margin-bottom: 8px;
+    list-style-type: "✓ ";
+    color: #006699;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #555;
+    border-top: 1px dashed var(--border);
+    padding-top: 10px;
+}
+
+/* AJUDA */
+/* Estilos para a página de Ajuda/Contactos */
+.help-panel {
+    padding: 40px;
+    line-height: 1.6;
+}
+
+.help-main-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+.contact-group {
+    margin-bottom: 40px;
+}
+
+.contact-title {
+    font-size: 32px; 
+    color: #002147; 
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.contact-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.contact-details a {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.contact-details a:hover {
+    color: var(--primary);
+}
+/* PAGAMENTOS */
+/* Estilos para a tabela de pagamentos */
+.table-pagamentos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.table-pagamentos th {
+    background-color: #fdf2e9;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 5px;
+    border: 1px solid #ddd;
+}
+
+.table-pagamentos td {
+    padding: 10px 8px;
+    border: 1px solid #eee;
+    vertical-align: top;
+    color: var(--text);
+}
+
+/* Fila resaltada */
+.row-highlight {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para abreviaturas com pontos abaixo */
+.table-pagamentos th abbr {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+/* Ajuste específicos para colunas com muito texto */
+.table-pagamentos td:nth-child(4), 
+.table-pagamentos td:nth-child(5) {
+    min-width: 150px;
+    max-width: 250px;
+}
+ /*MATRICULAS*/
+ /* Contenedor principal centrado */
+.enrollment-container {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.enrollment-title {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: var(--text);
+}
+
+.enrollment-box {
+    background-color: transparent;
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* Estilo del Select */
+.select-label {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.main-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    color: #333;
+    appearance: none; /* Quita la flecha por defecto */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%3C333' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+/* Caixa de alerta azul */
+.info-alert-box {
+    display: flex;
+    align-items: center;
+    background-color: #dbeafe; 
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.info-message {
+    color: #1e40af; 
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Botón de Iniciar Inscrição */
+.action-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.btn-enrollment {
+    background-color: #82a8ca;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: not-allowed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-enrollment span {
+    font-size: 24px;
+    line-height: 1;
+}
+/*TURMAS*/
+/* Contenedor principal de Turmas */
+.turmas-container {
+    padding: 60px !important;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.turmas-flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Estilo da imagem/ilustração */
+.turmas-image {
+    flex: 1;
+    text-align: right;
+}
+
+.turmas-image img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+/* Estilo do texto */
+.turmas-text {
+    flex: 1;
+    text-align: left;
+}
+
+.turmas-title {
+    font-size: 32px;
+    color: #3b82f6; 
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.turmas-subtitle {
+    font-size: 18px;
+    color: #4b5563;
+    font-weight: 400;
+}
+
+/* Responsividade para móveis */
+@media (width <= 768px) {
+    .turmas-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .turmas-text, .turmas-image {
+        text-align: center;
+    }
+    .turmas-title {
+        font-size: 24px;
+    }
+}
+/*REQUERIMENTOS*/
+/* Instrução superior */
+.req-instruction {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos filtros */
+.req-filters {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-group label {
+    font-size: 13px;
+}
+
+.filter-group select {
+    padding: 5px;
+    border: 1px solid #999;
+    background-color: #dbeafe;
+    min-width: 250px;
+}
+
+.btn-filter {
+    padding: 5px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #999;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Caixa de alerta amarela */
+.req-alert {
+    background-color: #fffbeb;
+    border: 1px solid #fef3c7;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #92400e;
+    font-size: 13px;
+}
+
+/* Estilos da Tabela */
+.table-req {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table-req th {
+    background-color: #faebd7; 
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-req td {
+    border: 1px solid #eee;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.req-link {
+    color: blue;
+    text-decoration: underline;
+}
+
+.status-deferido {
+    text-decoration: underline;
+    cursor: pointer;
+}
+/*CANDIDATURAS*/
+/* Estilos para a zona de pesquisa */
+.candidatura-search-box {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+}
+
+.search-row label {
+    width: 80px;
+    font-size: 14px;
+    color: #333;
+}
+
+.search-select {
+    flex: 1;
+    padding: 4px;
+    border: 1px solid #999;
+    background-color: #e6f0ff; 
+    height: 25px;
+}
+
+.search-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.btn-pesquisar {
+    padding: 5px 40px;
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%);
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-pesquisar:hover {
+    background: #eeeeee;
+}
+
+/* Estilos da Tabela de Candidaturas */
+.table-candidaturas {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table-candidaturas th {
+    background-color: #faebd7;
+    border: 1px solid #ddd;
+    padding: 12px 8px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-candidaturas td {
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+/* Subrayado de encabezados específicos*/
+.table-candidaturas th:nth-child(6),
+.table-candidaturas th:nth-child(8),
+.table-candidaturas th:nth-child(9) {
+    text-decoration: underline;
+}
+/*PAUTAS*/
+/* Estilos para a página de Pautas */
+.pautas-search-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.search-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+    color: #000;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.search-row label {
+    width: 100px;
+    font-size: 13px;
+}
+
+.pautas-select {
+    padding: 3px;
+    border: 1px solid #999;
+    background-color: #e6f0ff; 
+    font-size: 13px;
+}
+
+.full-select {
+    flex: 1;
+}
+
+.btn-pautas-search {
+    padding: 3px 15px;
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 100%);
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Caixa de resultados e avisos */
+.pautas-results-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.results-title {
+    margin-top: 0;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.inner-results-panel {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    min-height: 150px;
+}
+
+.inner-results-panel h5 {
+    margin-top: 0;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+/* Icono de informação azul */
+.info-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.blue-info-icon {
+    background-color: #3b82f6;
+    color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-family: serif;
+    font-weight: bold;
+}
+/*RESULTADOS DE INQUERITOS*/
+/* Específicos para a página de Resultados */
+.resultados-search-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-controls {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+}
+
+.results-year-select {
+    width: 60%; /* Ocupa a maior parte da fila antes do botão */
+}
+
+.btn-carregar {
+    flex: 1;
+    padding: 5px 20px !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px;
+}
+/*NOVOS PROCESSOS*/
+/* Contenedor de Pestanas */
+.tabs-container {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f0f0f0;
+    padding: 10px 10px 0 10px;
+}
+
+.tab {
+    padding: 8px 30px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tab.active {
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    top: 1px; /* Tapa o borde inferior do contêiner */
+    z-index: 2;
+}
+
+/* Painel de conteúdo sob as abas */
+.tab-content-panel {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 20px;
+    min-height: 200px;
+}
+
+/* Barra de ferramentas amarela */
+.processos-toolbar {
+    background-color: #fef9c3; 
+    border: 1px solid #fde047;
+    padding: 10px 15px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.toolbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.toolbar-links a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.help-mark {
+    color: #3b82f6;
+    font-weight: bold;
+    margin-right: 2px;
+}
+
+/* Mensagem de sem resultados */
+.status-msg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #333;
+}
+/*ACADEMICOS*/
+/* Estilos para Documentos Académicos */
+.academicos-filter-box {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.academicos-select {
+    width: 70%; /* Maior largura para as categorias */
+}
+
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.btn-filtrar-docs {
+    padding: 3px 25px !important;
+    min-width: 100px;
+}
+
+.table-academicos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table-academicos th {
+    background-color: #faebd7; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    text-align: left;
+}
+
+.table-academicos td {
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+/* Ajuste para el título del panel */
+.panel-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+/*CALENDARIO*/
+/* Contenedor de búsqueda */
+.calendar-search-section {
+    background-color: var(--bg-panel);
+    padding: 15px;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.calendar-input {
+    flex: 1;
+    padding: 3px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-panel);
+}
+
+/* Estrutura do Calendário */
+.calendar-header-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    background-color: var(--bg-panel); 
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+}
+
+.calendar-month-select {
+    flex: 1;
+}
+
+/*Cuadrícula */
+.calendar-grid {
+    background-color: var(--bg-panel);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid var(--bg-panel);
+}
+
+.day-name {
+    background-color: var(--primary);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid var(--border);
+}
+
+.day {
+    display: grid;
+    grid-template-rows: subgrid;
+    height: 100px;
+    color: var(--text-main);
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border);
+    position: relative;
+    padding: 50px;
+}
+
+.day.empty {
+    background-color: transparent;
+    border: none;
+}
+
+/* Estilo de los números de fondo */
+.day span {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 40px;
+    color: #bbb; 
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    pointer-events: none;
+}
+/*SUMARIOS*/
+/* Estilos para Sumários */
+.summary-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.summary-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+    border-top: 2px solid #eee;
+    padding-top: 20px;
+}
+
+.summary-col {
+    display: grid;
+    grid-template-columns: subgrid;
+    flex-direction: column;
+    grid-column: span 1;
+}
+
+.detail-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin: 0 0 10px 0;
+}
+
+/* Ajuste para los selects de Turmas/Aulas */
+.summary-section label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Responsividad para móviles */
+@media (width <= 768px) {
+    .summary-details-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendário - InfoAlunos</title>
+    <link rel="stylesheet" href="trabalho1.css">
+</head>
+<body>
+    <header>
+        <div><img src="logotipos_UMa_png-05.png" style="width: 150px;height:55px;"></div>
+        <div><strong>InfoAlunos - Serviço de Informação dos Alunos</strong></div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+        <span id="user-name-display" style="font-weight: 600;">Usuario</span>
+        <img src="image-kira.jpg" alt="Fotografia do utilizador" style="width:40px;height:40px;border-radius:50%;background:#fff;" />
+
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+              <span class="icon-sun">☀️</span>
+              <span class="icon-moon">🌙</span>
+            </div>
+          </label>
+        </div>
+
+        <a href="#" id="btn-logout" style="color: #ff4d4d; font-weight: bold;">Sair</a>
+        </div>
+
+        <nav class="header-nav" aria-label="Ações do utilizador">
+          <a href="trabalho1.html">Início</a>
+          <a href="ajuda.html">Ajuda</a>
+        </nav>
+        </header>
+
+    <div class="main-layout-flex">
+        <aside class="sidebar" aria-label="Navegação principal">
+                  <ul>
+        <li><a href="trabalho1.html">Inicio </a></li>
+        
+        <li class="has-submenu">
+          <a href="#">Geral </a>
+          <ul class="submenu">
+            <li><a href="processos.html">Processos</a></li>
+            <li><a href="dadosp.html">Dados Pessoais</a></li>
+            <li><a href="privacidade.html">Privacidade</a></li>
+            <li><a href="ajuda.html">Ajuda</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Servicios </a>
+          <ul class="submenu">
+            <li><a href="pagamentos.html">Pagamentos</a></li>
+            <li><a href="matriculas.html">Matrículas Inscrições</a></li>
+            <li><a href="turmas.html">Inscrição em Turmas</a></li>
+            <li><a href="requerimentos.html">Requerimentos</a></li>
+            <li><a href="cartao.html">Cartão Universitário</a></li>
+            <li><a href="bolsas.html">SASUMa-Bolsas</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Concursos </a>
+          <ul class="submenu">
+            <li><a href="candidaturas.html">Candidaturas</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Avaliação </a>
+          <ul class="submenu">
+            <li><a href="pautas.html">Pautas</a></li>
+            <li><a href="reclamacao.html">Reclamação de Notas</a></li>
+            <li><a href="inqueritos.html">Inquéritos</a></li>
+            <li><a href="resultados.html">Resultados de Inquéritos</a></li>
+            <li><a href="inquerito.html">Inquérito RAIDES</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Creditações </a>
+          <ul class="submenu">
+            <li><a href="lista_processos.html">Lista Processos</a></li>
+            <li><a href="novo_processo.html">Novo Processo</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Documentos </a>
+          <ul class="submenu">
+            <li><a href="academicos.html">Académicos</a></li>
+            <li><a href="declaracoes.html">Declarações</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Aula </a>
+          <ul class="submenu">
+            <li><a href="calendario.html">Calendário</a></li>
+            <li><a href="sumarios.html">Sumários</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+        
+    <div class="content">
+    <div class="panel">
+        <div class="calendar-search-section">
+            <h4 class="search-title">Pesquisa de Disciplinas</h4>
+            <div class="search-row">
+                <label for="ano-letivo">Ano Lectivo</label>
+                <select id="ano-letivo" class="pautas-select full-select">
+                    <option value=""></option>
+                </select>
+                <button type="button" class="btn-pautas-search">Pesquisar...</button>
+            </div>
+            <div class="search-row">
+                <label for="disciplina">Disciplina</label>
+                <input id="disciplina" type="text" class="calendar-input" disabled>
+
+            </div>
+        </div>
+
+        <div class="calendar-main-container">
+            <h4 class="search-title">Calendário</h4>
+            <div class="calendar-header-actions">
+                <select class="pautas-select calendar-month-select">
+                    <option value=""></option>
+                </select>
+                <!--O elemento <button> é utilizado para acionar uma ação, 
+                  como submeter um formulário ou executar um comando-->
+                <button class="btn-pautas-search">Calendário</button>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-name">Domingo</div>
+                <div class="day-name">Segunda</div>
+                <div class="day-name">Terça</div>
+                <div class="day-name">Quarta</div>
+                <div class="day-name">Quinta</div>
+                <div class="day-name">Sexta</div>
+                <div class="day-name">Sábado</div>
+
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day empty"></div>
+                <div class="day"><span>1</span></div>
+                <div class="day"><span>2</span></div>
+                <div class="day"><span>3</span></div>
+                <div class="day"><span>4</span></div>
+                <div class="day"><span>5</span></div>
+                <div class="day"><span>6</span></div>
+                <div class="day"><span>7</span></div>
+                <div class="day"><span>8</span></div>
+                <div class="day"><span>9</span></div>
+                <div class="day"><span>10</span></div>
+                <div class="day"><span>11</span></div>
+                <div class="day"><span>12</span></div>
+                <div class="day"><span>13</span></div>
+                <div class="day"><span>14</span></div>
+                <div class="day"><span>15</span></div>
+                <div class="day"><span>16</span></div>
+                <div class="day"><span>17</span></div>
+                <div class="day"><span>18</span></div>
+                <div class="day"><span>19</span></div>
+                <div class="day"><span>20</span></div>
+                <div class="day"><span>21</span></div>
+                <div class="day"><span>22</span></div>
+                <div class="day"><span>23</span></div>
+                <div class="day"><span>24</span></div>
+                <div class="day"><span>25</span></div>
+                <div class="day"><span>26</span></div>
+                <div class="day"><span>27</span></div>
+                <div class="day"><span>28</span></div>
+                <div class="day"><span>29</span></div>
+                <div class="day"><span>30</span></div>
+                <div class="day"><span>31</span></div>
+        </div>
+    </div>
+</div>
+
+   <script>
+    const usuarioLogueado = localStorage.getItem('nombreUsuario');
+    if (!usuarioLogueado) {
+        window.location.href = "login1.html";
+    } else {
+        const display = document.getElementById('user-name-display');
+        if(display) display.innerText = usuarioLogueado;
+    }
+
+
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.style.colorScheme = currentTheme;
+        if (currentTheme === 'dark') toggleSwitch.checked = true;
+    }
+
+    toggleSwitch.addEventListener('change', (e) => {
+        const theme = e.target.checked ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = theme;
+        localStorage.setItem('theme', theme);
+    });
+
+
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.id === 'btn-logout') {
+            e.preventDefault();
+
+            if (confirm("¿Desejas fechar a sessão?")) {
+                localStorage.removeItem('nombreUsuario');
+                window.location.replace("login1.html"); 
+            }
+        }
+    });
+</script>
+
+ <!--O <footer> reúne informação adicional e institucional, servindo como ponto de apoio à navegação e à identificação da aplicação.-->
+  <footer>
+    <img src="logotipos_UMa_png-05.png" alt="Universidade da Madeira" width="120">
+    <nav class="footer-nav" aria-label="Navegação do rodapé">
+      <a href="privacidade.html">Privacidade</a>
+      <a href="ajuda.html">Ajuda</a>
+      <a href="contactos.html">Contactos</a>
+    </nav>
+  </footer>
+
+
+</body>
+</html>
