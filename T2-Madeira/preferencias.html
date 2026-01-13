@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Norte de Madeira</title>
+        <link rel="stylesheet" href="madeira.css">
+    </head>
+    
+    <body>
+        
+        <header class="main-header">
+            <div class="header-left">
+                <img src="img/logo-red.png" alt="Madeira" class="logo">
+            </div>
+
+            <ul class="main-nav">
+                <li><a href="T2-madeita.html">Início</a></li>
+                    <li><a href="ajuda.html">Ajuda</a></li>
+                </ul>
+            </nav>
+
+            <h1 class="header-title">Madeira Experiences</h1>
+
+            <div class="header-right">
+                <div class="weather">
+                    ☀️ <span id="temp">--°C</span>
+                </div>
+
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round">
+                      <span class="icon-sun">☀️</span>
+                      <span class="icon-moon">🌙</span>
+                    </div>
+                  </label>
+                </div>
+
+        </header>
+
+            <aside class="sidebar" aria-label="Navegação principal">
+      <!--<ul> é um elemento utilizado para estruturar listas de opções de navegação.-->
+      <ul>
+        <!--<li> é um elemento que define cada item individual de uma lista.-->
+        <!-- "class" é um atributo utilizado para identificar elementos e aplicar estilos ou regras comuns.-->
+        <li class="has-submenu">
+        <!--O <a href="#"> é um elemento utilizado para criar ligações que permitem ao utilizador navegar entre páginas.-->
+          <a href="#">Geral </a>
+          <ul class="submenu">
+            <li><a href="preferencias.html">Preferências</a></li>
+            <li><a href="dadosp.html">Dados Pessoais</a></li>
+            <li><a href="privacidade.html">Privacidade</a></li>
+            <li><a href="ajuda.html">Ajuda</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Lugares para ver </a>
+          <ul class="submenu">
+            <li><a href="atracoes.html">Principais Atrações</a></li>
+            <li><a href="norte.html">Costa Norte</a></li>
+            <li><a href="sul.html">Costa Sul</a></li>
+            <li><a href="porto.html">Porto Santo</a></li>
+            <li><a href="capital.html">Capital</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Coisas para Fazer</a>
+          <ul class="submenu">
+            <li><a href="atracoes.html">Melhores Experiências</a></li>
+            <li><a href="norte.html">Costa Norte</a></li>
+            <li><a href="sul.html">Costa Sul</a></li>
+            <li><a href="porto.html">Porto Santo</a></li>
+            <li><a href="capital.html">Capital</a></li>
+          </ul>
+        </li>
+        
+        <li class="has-submenu">
+          <a href="#">Inspiração de Viagem</a>
+          <ul class="submenu">
+            <li><a href="atracoes.html">Tendências</a></li>
+            <li><a href="visitar.html">Melhores lugares a visitar</a></li>
+            <li><a href="festas.html">Festas e Arraiais</a></li>
+            <li><a href="gastronomia.html">Gastronomia</a></li>
+            <li><a href="levadas.html">Trilhos e levadas</a></li>
+            <li><a href="levadas.html">Natureza</a></li>
+            <li><a href="cultura.html">Cultura</a></li>
+            <li><a href="desporto.html">Desporto</a></li>
+            <li><a href="norte.html">Guia de viagem da Costa Norte</a></li>
+            <li><a href="sul.html">Guia de viagem da Costa Sul</a></li>
+            <li><a href="porto.html">Guia de viagem do Porto Santo</a></li>
+            <li><a href="capital.html">Guia de viagem da Capital</a></li>
+          </ul>
+        </li>
+        
+                
+        <li class="has-submenu">
+          <a href="#">Carrinho de Compras</a>
+          <ul class="submenu">
+            <li><a href="lista.html">Lista de artigos</a></li>
+            <li><a href="404.html">Finalizar Reservas</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Favoritos</a>
+          <ul class="submenu">
+            <li><a href="lista.html">Lista de artigos</a></li>
+            <li><a href="levadas.html">Pesquisa actividades</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Notificações</a>
+          <ul class="submenu">
+            <li><a href="levadas.html">actividades</a></li>
+            <li><a href="404.html">Pagamentos</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#">Reservas</a>
+          <ul class="submenu">
+            <li><a href="levadas.html">Atividades a realizar</a></li>
+            <li><a href="404.html">Arquivo de Atividades</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="background-circles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="preferencias-card">
+
+        <!-- Tema -->
+        <div class="pref-item">
+            <div class="pref-text">
+                <h3>Tema</h3>
+                <p>Escolha entre modo claro ou escuro</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Animações -->
+        <div class="pref-item">
+            <div class="pref-text">
+                <h3>Animações</h3>
+                <p>Ativar ou desativar efeitos visuais</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Idioma -->
+        <div class="pref-item">
+            <div class="pref-text">
+                <h3>Idioma</h3>
+                <p>Selecionar idioma da interface</p>
+            </div>
+            <select class="pref-select">
+                <option>Português</option>
+                <option>Espanhol</option>
+                <option>Inglês</option>
+            </select>
+        </div>
+
+        <!-- Notificações -->
+        <div class="pref-item">
+            <div class="pref-text">
+                <h3>Notificações</h3>
+                <p>Receber alertas e novidades</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <button class="pref-save">Guardar Preferências</button>
+
+    </div>
+
+</section>
+
+
+        <footer class="footer">
+            <img src="img/logo-red.png" alt="Madeira Experiences" class="footer-logo">
+            <p>© 2026 Madeira Experiences</p>
+        </footer>
+
+        <script>
+        fetch("https://api.open-meteo.com/v1/forecast?latitude=32.6669&longitude=-16.9241&current_weather=true")
+        .then(res => res.json())
+        .then(data => {
+            const temp = Math.round(data.current_weather.temperature);
+            document.getElementById("temp").textContent = `${temp}°C`;
+        })
+        .catch(() => {
+            document.getElementById("temp").textContent = "N/A";
+            });
+
+        //Modo escuro
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.style.colorScheme = currentTheme;
+        if (currentTheme === 'dark') toggleSwitch.checked = true;
+    }
+
+    toggleSwitch.addEventListener('change', (e) => {
+        const theme = e.target.checked ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = theme;
+        localStorage.setItem('theme', theme);
+    });
+
+        </script>
+
+
+    </body>
+</html>

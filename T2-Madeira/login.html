@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Madeira</title>
+    <link rel="stylesheet" href="madeira.css">
+</head>
+<body>
+
+<div class="login-page">
+
+    <div class="background-circles">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="login-card">
+        <img src="img/logo-red.png" alt="Madeira Logo" class="login-logo">
+        <h1>Bem-vindo</h1>
+        <p>Aceda ao painel da Madeira</p>
+
+        <!-- FORM CON ID -->
+        <form id="loginForm">
+
+            <div class="input-group">
+                <input type="text" id="nome" required>
+                <label>Nome</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+</div>
+
+<!-- JS FINAL -->
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // evita reload
+
+        const nome = document.getElementById("nome").value;
+
+        // guarda o nome (opcional)
+        localStorage.setItem("usuarioNome", nome);
+
+        // redireciona sempre
+        window.location.href = "T2-madeita.html";
+    });
+</script>
+
+</body>
+</html>
+
+
