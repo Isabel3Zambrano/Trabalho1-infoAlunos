@@ -1,0 +1,207 @@
+/* Esquema de cores (light/dark) com variaveis CSS */
+:root {
+    color-scheme: light dark;
+    --bg: light-dark(#f2f2f2, #1a1a1a);
+    --panel: light-dark(#ffffff, #2b2b2b);
+    --text: light-dark(#000, #fff);
+    --border: light-dark(#d043c6, #650d6b);
+    --primary: #8b2aa8;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--panel);
+  color: var(--text);
+}
+
+/* Cabecera */
+.header {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  height: 60px;
+}  
+
+.header .user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.summary-section {
+    border: 1px solid var(--text);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+/* Sección de búsqueda e filtros */
+
+.search-filters {
+  margin: 20px;
+  border: 1px solid var(--text);
+  background: var(--panel);
+}
+
+.pesquisa {
+  margin: 20px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--text);
+  padding: 10px 20px;
+}
+
+.pesquisa-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+
+/* Filtros */
+.filters {
+  background: var(--panel);
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--text);
+}
+
+.filters label {
+  margin-right: 15px;
+}
+
+.btn {
+  background: var(--border);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-left: 200px;
+  width: 190px;
+}
+
+.btn:hover {
+  background: var(--primary);
+}
+
+/* Contenedor tabla */
+.table-container {
+  padding: 10px 20px;
+  overflow-x: auto;
+}
+
+/* Tabla sumario */
+.sumario {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+}
+
+.sumario thead {
+  background: var(--border);
+}
+
+.sumario th,
+.sumario td {
+  border: 1px solid var(--text);
+  padding: 6px 8px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.sumario th {
+  font-weight: bold;
+}
+
+/* Filas alternas */
+.sumario tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+/* Hover fila */
+.sumario tbody tr:hover {
+  background: var(--bg);
+}
+
+/* Footer */
+.footer .logo {
+    height: 60px;
+    width: 200px;
+
+}
+.footer {
+  background: var(--primary);
+  padding: 10px 20px;
+  text-align: center;
+  height: 100px;
+}
+
+/* modo claro/escuro toggle */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+    background-color: #585858;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider:before {
+    background-color: white;
+    content: "";
+    height: 20px;
+    left: 5px;
+    position: absolute;
+    transition: .4s;
+    width: 25px;
+    z-index: 3;
+}
+
+input:checked + .slider { 
+    background-color: var(--primary); 
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+.slider.round { 
+    border-radius: 34px; 
+}
+.slider.round:before { 
+    border-radius: 50%; 
+}
+
